@@ -43,8 +43,10 @@ public class MenuAndDialogTests : ShopDeskTest
         var file = Path.Combine(Path.GetTempPath(), $"shopdesk-cart-{Guid.NewGuid():N}.csv");
         try
         {
-            On<MainWindow>().StartExport();
+            var main = On<MainWindow>();
+            main.StartExport();
             On<FileDialog>().Choose(file);
+            main.WaitStatus("Cart exported");
 
             File.ReadAllLines(file).Should().Equal("Product,Quantity,Amount", "Canvas Backpack,2,59.98");
         }

@@ -65,6 +65,13 @@ public sealed partial class MainWindow : Window, IHasMainMenu
         return this;
     }
 
+    /// <summary>Waits until the status bar shows <paramref name="text"/> (the app finished an action).</summary>
+    public MainWindow WaitStatus(string text)
+    {
+        status.WaitText(text);
+        return this;
+    }
+
     public MainWindow WaitUntilLoaded()
     {
         loading.WaitGone(TimeSpan.FromSeconds(15));
