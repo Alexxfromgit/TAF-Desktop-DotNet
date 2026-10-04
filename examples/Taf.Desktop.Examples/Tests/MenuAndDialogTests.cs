@@ -46,7 +46,7 @@ public class MenuAndDialogTests : ShopDeskTest
             var main = On<MainWindow>();
             main.StartExport();
             On<FileDialog>().Choose(file);
-            main.WaitStatus("Cart exported");
+            Verify.Equal(main.WaitStatus("Cart exported"), $"Cart exported to {file}", "Status bar");
 
             File.ReadAllLines(file).Should().Equal("Product,Quantity,Amount", "Canvas Backpack,2,59.98");
         }

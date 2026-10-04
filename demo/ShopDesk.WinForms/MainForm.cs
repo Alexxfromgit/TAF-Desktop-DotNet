@@ -156,7 +156,7 @@ internal sealed class MainForm : Form
         if (dialog.ShowDialog(this) == DialogResult.OK)
         {
             File.WriteAllText(dialog.FileName, Services.Cart.ToCsv());
-            status.Text = "Cart exported";
+            status.Text = AppText.Exported(dialog.FileName);
         }
     }
 

@@ -94,7 +94,7 @@ public partial class MainWindow : Window
         if (dialog.ShowDialog(this) == true)
         {
             File.WriteAllText(dialog.FileName, Services.Cart.ToCsv());
-            StatusText.Text = "Cart exported";
+            StatusText.Text = AppText.Exported(dialog.FileName);
         }
     }
 

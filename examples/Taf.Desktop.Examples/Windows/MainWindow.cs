@@ -65,11 +65,11 @@ public sealed partial class MainWindow : Window, IHasMainMenu
         return this;
     }
 
-    /// <summary>Waits until the status bar shows <paramref name="text"/> (the app finished an action).</summary>
-    public MainWindow WaitStatus(string text)
+    /// <summary>Waits until the status bar starts with <paramref name="prefix"/> (the app finished an action).</summary>
+    public string WaitStatus(string prefix)
     {
-        status.WaitText(text);
-        return this;
+        status.WaitUntil(s => s.Text.StartsWith(prefix, StringComparison.Ordinal), $"starts with '{prefix}'");
+        return Status;
     }
 
     public MainWindow WaitUntilLoaded()

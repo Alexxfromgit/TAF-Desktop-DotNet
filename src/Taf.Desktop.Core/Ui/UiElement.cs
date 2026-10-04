@@ -133,6 +133,12 @@ public class UiElement
         }
     }
 
+    /// <summary>
+    /// Replaces the content by typing on the keyboard, like a user. For controls that ignore values set through UI
+    /// Automation (the file name box of Windows file dialogs).
+    /// </summary>
+    public void TypeKeys(string text) => Step.Run($"Type '{text}' into {Name} (keyboard)", () => WaitEnabled().TypeText(text));
+
     public void Clear() => Step.Run($"Clear {Name}", () =>
     {
         var node = WaitEnabled();

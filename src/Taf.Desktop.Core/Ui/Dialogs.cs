@@ -48,7 +48,8 @@ public class FileDialog : Window
         {
             fileName = Element("fileName", Locator.ById("1148", ControlType.Edit));    // open dialog
         }
-        fileName.Type(path);
+        // Typed, not set: the dialog keeps its own file name and may ignore text set through UI Automation.
+        fileName.TypeKeys(path);
         fileName.Press(VirtualKeyShort.ENTER);
         WaitClosed();
     });

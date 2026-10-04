@@ -95,6 +95,7 @@ there are no stale references. Every action is a report step.
 |---|---|
 | `Click()`, `DoubleClick()`, `RightClick()` | `Ui:ClickMode`: `Auto` (Invoke for WPF/XAML, mouse for WinForms/Win32), `Invoke`, `Mouse` |
 | `Type(text)`, `Clear()` | through UI Automation when the field accepts it, otherwise typed. Password fields are masked in the report. |
+| `TypeKeys(text)` | always typed on the keyboard, for controls that ignore values set through UI Automation (file dialogs) |
 | `Check()`, `Uncheck()`, `SetChecked(bool)` | toggle pattern; only toggles when needed |
 | `Select(item)` / `Select()` | an item of a combo box or list (expands and collapses as needed) / this element itself |
 | `OpenMenu("File", "Export cart...")` | menu bars, including WinForms drop-downs that open as separate popup windows |

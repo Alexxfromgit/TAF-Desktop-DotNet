@@ -26,5 +26,7 @@ public static class AppText
 
     public static string Total(decimal amount) => "Total: " + Money.Format(amount);
 
+    public static string Exported(string path) => $"Cart exported to {path}";
+
     public static string OrderPlaced(OrderResult order) => $"Order {order.OrderId} placed. Total: {Money.Format(order.Total)}";
 }
