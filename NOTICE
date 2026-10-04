@@ -1,0 +1,14 @@
+desktop-taf
+Copyright (c) 2026 alexxfromgit - MIT License (see LICENSE)
+
+The ShopDesk demo app in demo/ is part of this project and was written for it. Its product names and data are
+fictional.
+
+The framework builds on these libraries (restored from NuGet, not redistributed in this repository):
+
+* FlaUI (MIT) - UI Automation for .NET
+* NUnit (MIT) and the NUnit3 test adapter (MIT)
+* Allure .NET (Apache-2.0)
+* FluentAssertions 7.x (Apache-2.0) - newer major versions use a commercial license and are not used
+* WireMock.Net (Apache-2.0)
+* Microsoft.Extensions.Configuration (MIT)

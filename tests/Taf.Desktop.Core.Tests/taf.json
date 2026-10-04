@@ -1,0 +1,17 @@
+{
+  "Wait": {
+    "Timeout": "300ms",
+    "Poll": "20ms",
+    "WindowTimeout": "300ms"
+  },
+  "Ui": {
+    "InvokeReturnTimeout": "200ms"
+  },
+  "Users": {
+    "standard": { "Username": "standard_user" }
+  },
+  "Layer": {
+    "Base": "from taf.json",
+    "Env": "from taf.json"
+  }
+}

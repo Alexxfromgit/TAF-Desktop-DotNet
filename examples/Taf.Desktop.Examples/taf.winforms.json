@@ -1,0 +1,14 @@
+{
+  "App": {
+    "Path": "artifacts/bin/ShopDesk.WinForms/${Build:Configuration}/ShopDesk.WinForms.exe"
+  },
+  "Report": {
+    "Parameters": { "App": "WinForms" },
+    "Labels": { "parentSuite": "WinForms" }
+  },
+  "Perf": {
+    "Thresholds": {
+      "ShopDesk.WinForms start": "10s"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "App": {
+    "Path": "",
+    "Arguments": "",
+    "WorkingDirectory": "",
+    "DataDirectory": "",
+    "ProcessName": "",
+    "StartTimeout": "30s",
+    "CloseTimeout": "3s",
+    "Lifecycle": "RestartApp",
+    "AfterFailure": "RestartApp",
+    "ResetDataOnFirstStart": true
+  },
+  "Ui": {
+    "ClickMode": "Auto",
+    "InvokeReturnTimeout": "1500ms"
+  },
+  "Wait": {
+    "Timeout": "10s",
+    "Poll": "200ms",
+    "WindowTimeout": "20s"
+  },
+  "Verify": {
+    "Mode": "Hard"
+  },
+  "Evidence": {
+    "ScreenshotOnFailure": true,
+    "UiTreeOnFailure": true,
+    "ScreenshotOnSoftFailure": true,
+    "Video": "Off",
+    "FfmpegPath": ""
+  },
+  "Perf": {
+    "Enabled": true,
+    "FailOnThreshold": false
+  },
+  "Mock": {
+    "UrlKey": "Mock:Url"
+  },
+  "Lint": {
+    "RequireOwner": true,
+    "RequireFeature": true,
+    "RequireWindowIdentifier": true,
+    "Secrets": true,
+    "QuarantineMaxDays": 90
+  },
+  "Report": {
+    "CleanResults": true
+  },
+  "Taf": {
+    "KeepAwake": true,
+    "SecretsGuard": {
+      "Enabled": true
+    }
+  }
+}

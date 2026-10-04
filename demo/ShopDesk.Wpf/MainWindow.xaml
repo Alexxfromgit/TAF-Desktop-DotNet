@@ -1,0 +1,75 @@
+<Window x:Class="ShopDesk.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ShopDesk" AutomationProperties.AutomationId="MainWindow"
+        Width="900" Height="600" WindowStartupLocation="CenterScreen">
+  <DockPanel>
+    <Menu DockPanel.Dock="Top" AutomationProperties.AutomationId="MainMenu">
+      <MenuItem Header="_File">
+        <MenuItem Header="_Export cart..." Click="OnExport" />
+        <MenuItem Header="_Sign out" Click="OnSignOut" />
+        <Separator />
+        <MenuItem Header="E_xit" Click="OnExit" />
+      </MenuItem>
+      <MenuItem Header="_Help">
+        <MenuItem Header="_About ShopDesk" Click="OnAbout" />
+      </MenuItem>
+    </Menu>
+    <StatusBar DockPanel.Dock="Bottom">
+      <StatusBarItem>
+        <TextBlock x:Name="StatusText" AutomationProperties.AutomationId="StatusText" />
+      </StatusBarItem>
+    </StatusBar>
+    <Grid Margin="12">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="280" />
+      </Grid.ColumnDefinitions>
+
+      <TextBlock x:Name="WelcomeText" AutomationProperties.AutomationId="WelcomeText" VerticalAlignment="Center" />
+      <Button x:Name="CartButton" AutomationProperties.AutomationId="CartButton" Grid.Column="1" Content="Cart (0)"
+              HorizontalAlignment="Right" Padding="16,4" Click="OnOpenCart" />
+
+      <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,12,0,8">
+        <Label Content="_Search" Target="{Binding ElementName=SearchBox}" Padding="0,0,8,0" VerticalAlignment="Center" />
+        <TextBox x:Name="SearchBox" AutomationProperties.AutomationId="SearchBox" Width="300" />
+        <Button x:Name="SearchButton" AutomationProperties.AutomationId="SearchButton" Content="Search" Margin="8,0,0,0"
+                Padding="12,2" IsDefault="True" Click="OnSearch" />
+      </StackPanel>
+
+      <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+        <ProgressBar x:Name="LoadingIndicator" AutomationProperties.AutomationId="LoadingIndicator" IsIndeterminate="True"
+                     Height="6" Visibility="Collapsed" Margin="0,0,0,8" />
+        <StackPanel Orientation="Horizontal">
+          <TextBlock x:Name="ErrorBanner" AutomationProperties.AutomationId="ErrorBanner" Foreground="Firebrick"
+                     VerticalAlignment="Center" Visibility="Collapsed" />
+          <Button x:Name="RetryButton" AutomationProperties.AutomationId="RetryButton" Content="Retry" Margin="12,0,0,8"
+                  Padding="12,2" Visibility="Collapsed" Click="OnRetry" />
+        </StackPanel>
+      </StackPanel>
+
+      <ListBox x:Name="ProductList" AutomationProperties.AutomationId="ProductList" Grid.Row="3"
+               SelectionChanged="OnProductSelected" />
+
+      <GroupBox x:Name="DetailsPanel" AutomationProperties.AutomationId="DetailsPanel" Header="Details" Grid.Row="3"
+                Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Top">
+        <StackPanel Margin="8">
+          <TextBlock x:Name="DetailsName" AutomationProperties.AutomationId="DetailsName" FontWeight="Bold" TextWrapping="Wrap" />
+          <TextBlock x:Name="DetailsPrice" AutomationProperties.AutomationId="DetailsPrice" Margin="0,4,0,0" />
+          <TextBlock x:Name="DetailsStock" AutomationProperties.AutomationId="DetailsStock" Margin="0,4,0,0" />
+          <Label Content="_Quantity" Target="{Binding ElementName=QuantityBox}" Padding="0" Margin="0,12,0,2" />
+          <TextBox x:Name="QuantityBox" AutomationProperties.AutomationId="QuantityBox" Text="1" Width="60"
+                   HorizontalAlignment="Left" />
+          <Button x:Name="AddToCartButton" AutomationProperties.AutomationId="AddToCartButton" Content="Add to cart"
+                  IsEnabled="False" Margin="0,12,0,0" Padding="12,4" HorizontalAlignment="Left" Click="OnAddToCart" />
+        </StackPanel>
+      </GroupBox>
+    </Grid>
+  </DockPanel>
+</Window>

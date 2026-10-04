@@ -1,0 +1,23 @@
+name: Bug report
+description: Something in the framework does not work as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: Minimal test, configuration and command. Remove any secrets.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: desktop-taf commit/tag, .NET SDK, Windows version, app technology (WPF, WinForms, ...)

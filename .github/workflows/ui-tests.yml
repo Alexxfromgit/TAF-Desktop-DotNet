@@ -1,0 +1,106 @@
+name: UI tests
+
+# The example UI tests drive the demo app on a Windows desktop: on main and on demand.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ui-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ui:
+    name: UI tests (${{ matrix.app }})
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: WPF
+            env: default
+          - app: WinForms
+            env: winforms
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      - name: Build
+        run: dotnet build -c Release
+
+      - name: UI tests against the ${{ matrix.app }} app
+        env:
+          TAF_ENV: ${{ matrix.env }}
+        run: dotnet test examples/Taf.Desktop.Examples -c Release --no-build --filter "TestCategory!=static"
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: allure-results-${{ matrix.env }}
+          path: artifacts/allure-results/Taf.Desktop.Examples
+          retention-days: 14
+
+      - name: Upload framework reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: taf-reports-${{ matrix.env }}
+          path: artifacts/taf-reports
+          if-no-files-found: ignore
+          retention-days: 14
+
+  report:
+    name: Allure report
+    needs: ui
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: allure-results-*
+          path: allure-results
+          merge-multiple: true
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Generate the report (both app flavours in one report)
+        run: npx --yes allure-commandline@2.46.1 generate allure-results -o allure-report --clean
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v7
+        with:
+          name: allure-report
+          path: allure-report
+          retention-days: 14
+
+      - name: Prepare GitHub Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: allure-report
+
+  pages:
+    name: Publish Allure report
+    needs: report
+    if: always() && needs.report.result == 'success' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v5

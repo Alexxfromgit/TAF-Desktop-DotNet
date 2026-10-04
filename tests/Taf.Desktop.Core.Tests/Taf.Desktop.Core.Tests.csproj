@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Unit tests of the framework. No app and no desktop needed: the window model runs against fake UI trees. -->
+  <PropertyGroup>
+    <RootNamespace>Taf.Desktop.Core.Tests</RootNamespace>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="NUnit.Analyzers" PrivateAssets="all" />
+    <PackageReference Include="FluentAssertions" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Taf.Desktop.Core\Taf.Desktop.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="taf*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

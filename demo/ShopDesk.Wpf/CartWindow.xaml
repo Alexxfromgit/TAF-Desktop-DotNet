@@ -1,0 +1,34 @@
+<Window x:Class="ShopDesk.Wpf.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cart" AutomationProperties.AutomationId="CartWindow"
+        Width="480" SizeToContent="Height" ResizeMode="NoResize" ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="16">
+    <TextBlock x:Name="EmptyCartText" AutomationProperties.AutomationId="EmptyCartText" Text="Your cart is empty"
+               Visibility="Collapsed" Margin="0,0,0,8" />
+    <ListBox x:Name="CartItems" AutomationProperties.AutomationId="CartItems" Height="140" />
+    <Button x:Name="RemoveButton" AutomationProperties.AutomationId="RemoveButton" Content="Remove selected"
+            HorizontalAlignment="Left" Margin="0,8,0,8" Padding="12,2" Click="OnRemove" />
+    <TextBlock x:Name="SubtotalText" AutomationProperties.AutomationId="SubtotalText" />
+
+    <Label Content="S_hipping" Target="{Binding ElementName=ShippingCombo}" Padding="0" Margin="0,12,0,2" />
+    <ComboBox x:Name="ShippingCombo" AutomationProperties.AutomationId="ShippingCombo" Width="200"
+              HorizontalAlignment="Left" SelectionChanged="OnOptionsChanged" />
+    <CheckBox x:Name="GiftWrapCheckBox" AutomationProperties.AutomationId="GiftWrapCheckBox" Content="Gift wrap (+$4.99)"
+              Margin="0,8,0,0" Checked="OnOptionsChanged" Unchecked="OnOptionsChanged" />
+    <TextBlock x:Name="TotalText" AutomationProperties.AutomationId="TotalText" FontWeight="Bold" Margin="0,8,0,0" />
+
+    <Label Content="_Name" Target="{Binding ElementName=CustomerNameBox}" Padding="0" Margin="0,12,0,2" />
+    <TextBox x:Name="CustomerNameBox" AutomationProperties.AutomationId="CustomerNameBox" TextChanged="OnFormChanged" />
+    <Label Content="_Address" Target="{Binding ElementName=AddressBox}" Padding="0" Margin="0,8,0,2" />
+    <TextBox x:Name="AddressBox" AutomationProperties.AutomationId="AddressBox" TextChanged="OnFormChanged" />
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+      <Button x:Name="PlaceOrderButton" AutomationProperties.AutomationId="PlaceOrderButton" Content="Place order"
+              IsEnabled="False" Padding="12,4" Click="OnPlaceOrder" />
+      <Button x:Name="CloseButton" AutomationProperties.AutomationId="CloseButton" Content="Close" IsCancel="True"
+              Margin="8,0,0,0" Padding="12,4" />
+    </StackPanel>
+  </StackPanel>
+</Window>

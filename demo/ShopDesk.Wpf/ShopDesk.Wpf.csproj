@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- WPF flavour of the demo app. AutomationIds match the WinForms flavour, so one set of tests covers both. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>ShopDesk.Wpf</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopDesk.Core\ShopDesk.Core.csproj" />
+  </ItemGroup>
+</Project>

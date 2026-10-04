@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- UI-independent logic shared by the WPF and WinForms flavours of the demo app. -->
+  <PropertyGroup>
+    <RootNamespace>ShopDesk</RootNamespace>
+  </PropertyGroup>
+</Project>

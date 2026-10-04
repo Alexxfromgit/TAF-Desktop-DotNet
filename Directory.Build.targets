@@ -1,0 +1,25 @@
+<Project>
+  <!--
+    Test projects that reference Allure get an allureConfig.json next to their assembly, so results land in
+    artifacts/allure-results/<project> no matter where the tests are started from (CLI, Rider, Visual Studio).
+  -->
+  <Target Name="TafWriteAllureConfig" AfterTargets="Build" Condition="'$(TafAllure)' == 'true'">
+    <PropertyGroup>
+      <_TafAllureDir>$([System.String]::Copy('$(ArtifactsPath)').Replace('\', '/'))/allure-results/$(MSBuildProjectName)</_TafAllureDir>
+      <_TafAllureJson>
+{
+  "allure": {
+    "directory": "$(_TafAllureDir)",
+    "links": [
+      "https://github.com/Alexxfromgit/TAF-Desktop-DotNet/issues/{issue}",
+      "https://github.com/Alexxfromgit/TAF-Desktop-DotNet/issues/{tms}",
+      "{link}"
+    ]
+  }
+}
+      </_TafAllureJson>
+    </PropertyGroup>
+    <MakeDir Directories="$(_TafAllureDir)" />
+    <WriteLinesToFile File="$(OutDir)allureConfig.json" Lines="$(_TafAllureJson)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+  </Target>
+</Project>

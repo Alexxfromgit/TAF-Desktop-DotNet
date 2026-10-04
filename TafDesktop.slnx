@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Taf.Desktop.Core/Taf.Desktop.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Taf.Desktop.Core.Tests/Taf.Desktop.Core.Tests.csproj" />
+  </Folder>
+  <Folder Name="/examples/">
+    <Project Path="examples/Taf.Desktop.Examples/Taf.Desktop.Examples.csproj" />
+  </Folder>
+  <Folder Name="/demo/">
+    <Project Path="demo/ShopDesk.Core/ShopDesk.Core.csproj" />
+    <Project Path="demo/ShopDesk.Wpf/ShopDesk.Wpf.csproj" />
+    <Project Path="demo/ShopDesk.WinForms/ShopDesk.WinForms.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+</Solution>

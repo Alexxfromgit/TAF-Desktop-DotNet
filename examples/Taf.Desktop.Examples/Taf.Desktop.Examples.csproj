@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Example UI tests against the ShopDesk demo app (WPF and WinForms). Replace them with your own. -->
+  <PropertyGroup>
+    <RootNamespace>Taf.Desktop.Examples</RootNamespace>
+    <IsTestProject>true</IsTestProject>
+    <!-- Writes allureConfig.json (results go to artifacts/allure-results/Taf.Desktop.Examples). -->
+    <TafAllure>true</TafAllure>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="NUnit.Analyzers" PrivateAssets="all" />
+    <PackageReference Include="FluentAssertions" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Taf.Desktop.Core\Taf.Desktop.Core.csproj" />
+    <!-- Build the demo apps together with the tests (their executables are started, not referenced). -->
+    <ProjectReference Include="..\..\demo\ShopDesk.Wpf\ShopDesk.Wpf.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\demo\ShopDesk.WinForms\ShopDesk.WinForms.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="taf*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

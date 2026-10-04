@@ -1,0 +1,23 @@
+{
+  "App": {
+    "Path": "artifacts/bin/ShopDesk.Wpf/${Build:Configuration}/ShopDesk.Wpf.exe",
+    "DataDirectory": "${Taf:Root}/artifacts/app-data/shopdesk",
+    "Arguments": "--api ${Mock:Url} --data-dir \"${App:DataDirectory}\"",
+    "Lifecycle": "RestartApp"
+  },
+  "Users": {
+    "standard": { "Username": "standard_user" },
+    "locked": { "Username": "locked_user" }
+  },
+  "Report": {
+    "Parameters": { "App": "WPF" },
+    "Labels": { "parentSuite": "WPF" }
+  },
+  "Perf": {
+    "Thresholds": {
+      "ShopDesk.Wpf start": "10s",
+      "MainWindow ready": "5s",
+      "LoginWindow.signIn -> MainWindow": "5s"
+    }
+  }
+}

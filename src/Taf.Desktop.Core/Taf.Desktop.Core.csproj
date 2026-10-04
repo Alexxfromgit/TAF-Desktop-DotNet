@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The framework: configuration, NUnit integration, app lifecycle, window model, evidence, mocking, reports. -->
+  <PropertyGroup>
+    <RootNamespace>Taf.Desktop.Core</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FlaUI.Core" />
+    <PackageReference Include="FlaUI.UIA3" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="Allure.NUnit" />
+    <PackageReference Include="WireMock.Net.Minimal" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\taf.defaults.json" LogicalName="taf.defaults.json" />
+    <EmbeddedResource Include="Resources\categories.json" LogicalName="taf.categories.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Taf.Desktop.Core.Tests" />
+  </ItemGroup>
+</Project>

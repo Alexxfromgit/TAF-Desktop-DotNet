@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Known issues",
+    "description": "Failures of tests marked with [KnownIssue] - already reported bugs.",
+    "matchedStatuses": ["failed", "broken"],
+    "traceRegex": "(?s).*KnownIssueException.*"
+  },
+  {
+    "name": "UI element not found",
+    "description": "An element or window did not appear in time: the app changed or a locator is outdated.",
+    "matchedStatuses": ["failed"],
+    "traceRegex": "(?s).*(ElementNotFoundException|WindowNotReadyException).*"
+  },
+  {
+    "name": "Product defects",
+    "description": "The product behaved differently from what the test expects.",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test data problems",
+    "description": "The test could not find or create the data it needs.",
+    "matchedStatuses": ["broken"],
+    "traceRegex": "(?s).*TestDataException.*"
+  },
+  {
+    "name": "Environment / infrastructure",
+    "description": "The app did not start, a UI Automation call timed out, or a backend was unreachable.",
+    "matchedStatuses": ["broken"],
+    "traceRegex": "(?s).*(EnvironmentException|TimeoutException|COMException|Win32Exception|ElementNotAvailableException|HttpRequestException|SocketException).*"
+  },
+  {
+    "name": "Quarantined",
+    "description": "Tests skipped by [Quarantined] until their date.",
+    "matchedStatuses": ["skipped"],
+    "messageRegex": "(?s).*Quarantined until .*"
+  },
+  {
+    "name": "Framework problems",
+    "description": "Bugs or misconfiguration in the framework or the test code.",
+    "matchedStatuses": ["broken"],
+    "traceRegex": "(?s).*(FrameworkException|NullReferenceException|InvalidCastException|InvalidOperationException|ArgumentException|NotSupportedException).*"
+  },
+  {
+    "name": "Other problems",
+    "matchedStatuses": ["broken"]
+  }
+]
