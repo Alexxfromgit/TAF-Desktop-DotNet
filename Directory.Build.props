@@ -9,7 +9,6 @@
     <IsPackable>false</IsPackable>
 
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>dev</VersionSuffix>
     <Authors>alexxfromgit</Authors>
     <Copyright>Copyright (c) 2026 alexxfromgit</Copyright>
 

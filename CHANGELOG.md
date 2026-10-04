@@ -5,6 +5,8 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-04
+
 ### Added
 - Framework for Windows desktop UI tests on .NET 10, NUnit 5, FlaUI 5 (UIA3), FluentAssertions 7, WireMock.Net and
   Allure 2, with central package management and the `artifacts/` output layout.
@@ -29,3 +31,6 @@ All notable changes to this project are documented here. The format follows
   catalog, cart and checkout, menus and dialogs.
 - CI: build, unit tests and linter on every push; UI tests for both flavours on Windows runners, with the merged
   Allure report published to GitHub Pages.
+
+[Unreleased]: https://github.com/Alexxfromgit/TAF-Desktop-DotNet/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Alexxfromgit/TAF-Desktop-DotNet/releases/tag/v1.0.0
