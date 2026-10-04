@@ -1,0 +1,23 @@
+# Build output (UseArtifactsOutput): binaries, test results, Allure results and reports, app data
+artifacts/
+bin/
+obj/
+TestResults/
+allure-results/
+allure-report/
+
+# IDEs
+.idea/
+.vs/
+*.user
+*.suo
+*.DotSettings.user
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Local tools and recordings
+tools/ffmpeg/
+*.mp4
