@@ -18,7 +18,7 @@
     <!-- Network mocking -->
     <PackageVersion Include="WireMock.Net.Minimal" Version="2.18.0" />
     <!-- Configuration -->
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.12" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="11.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="10.0.12" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.12" />
   </ItemGroup>
